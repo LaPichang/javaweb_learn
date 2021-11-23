@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTMLDOM</title>
+
+
+    <style>
+        .s1{
+            border: 1px solid rebeccapurple;
+            width: 100px;
+            font-size: 50px;
+        }
+
+        .s2{
+            border: 5px solid fuchsia;
+            width: 200px;
+            font-size: 100px;
+        }
+    </style>
+
+</head>
+<body>
+
+<div id="div1">
+  div1
+</div>
+<br>
+<br>
+<div id="div2">
+  div2
+</div>
+<br>
+<br>
+<div id="div3">
+    div3
+</div>
+<br>
+<br>
+<div id="div4">
+    div4
+</div>
+
+<script>
+  // innerHTML 属性对于获取或替换 HTML 元素的内容很有用
+  var div1 = document.getElementById("div1");
+  // 替换
+  div1.innerHTML = "<input type='text'>";
+
+  // 追加(匿名写法)
+  document.getElementById("div2").innerHTML += "<input type='button'>";
+
+
+
+
+
+  // HTMLDOM_控制样式
+  // 方式一:使用元素的style属性设置
+  var div3 = document.getElementById("div3");
+  div3.onclick = function (){
+      div3.style.border = "1px solid red";
+      div3.style.width = "200px";
+      div3.style.fontSize = "100px";
+  }
+
+  // 方式二:提前定义类选择器的样式，通过元素的calssName属性来设置其class的属性值
+  var div4 = document.getElementById("div4");
+  var num = 1;
+  function div4_fun(){
+
+      num = num%2 + 1;
+      div4.className = "s"+num;
+  }
+
+  setInterval(div4_fun,1000);
+
+</script>
+
+</body>
+</html>

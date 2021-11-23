@@ -1,0 +1,16 @@
+p{
+    color: blue;
+    font-size: 50px;
+    text-align: center;
+    line-height: 100px;
+    border: 10px dotted black;
+}
+
+div{
+    color: red;
+    font-size: 70px;
+    line-height: 50px;
+    border: 20px double red;
+    background: url("../image/icon_2.jpg");
+    <!-- 引用不同包下图片，要写绝对路径，或者在用相对路径写法（../包名/文件名） -->
+}

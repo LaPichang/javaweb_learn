@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+</head>
+<body>
+
+<a href="http://localhost:63342/java_web_01/HTML/JS%E7%BB%83%E4%B9%A0-%E7%94%B5%E7%81%AF%E5%BC%80%E5%85%B3.html?_ijt=t6mfcf1c8p1a861g45anao7r85">
+<img  id = "img_check" src="image/jiangxuan_1.jpg" width="100%">
+</a>
+
+<input id="opencard" type="button" value="跳转页面">
+
+<script>
+
+  var num = 1;
+
+  function fun(){
+    num++;
+    if(num > 5){
+      num = 1;
+    }
+
+    // 获取 img 对象
+    var img = document.getElementById("img_check");
+    img.src = "image/jiangxuan_"+num+".jpg";
+  }
+
+  var opencard = document.getElementById("opencard");
+  opencard.onclick = function (){
+    // 打开新窗口
+    open("http://localhost:63342/java_web_01/HTML/JS%E7%BB%83%E4%B9%A0%E2%80%9499%E4%B9%98%E6%B3%95%E8%A1%A8.html?_ijt=ttv4143ep7d948jnota52ibhta");
+  }
+
+  // 定义定时器
+  setInterval(fun,3000);
+
+</script>
+
+</body>
+</html>

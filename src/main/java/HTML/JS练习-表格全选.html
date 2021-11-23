@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格全选</title>
+
+  <style>
+    table{
+      margin: auto;
+      font-size: 20px;
+      border: 1px solid;
+    }
+    td{
+      text-align: center;
+      width: 200px;
+      border: 2px solid black;
+    }
+    .over{
+      background:fuchsia;
+    }
+    .out{
+      background: white;
+    }
+  </style>
+
+</head>
+<body>
+
+<table>
+  <caption>学生信息表</caption>
+  <tr>
+    <td><input type="checkbox" name="cb" id="Select"></td>
+    <td>编号</td>
+    <td>姓名</td>
+    <td>性别</td>
+  </tr>
+
+  <tr>
+    <td><input type="checkbox" name="cb"></td>
+    <td>1</td>
+    <td>岳不群</td>
+    <td>？</td>
+  </tr>
+
+  <tr>
+    <td><input type="checkbox" name="cb"></td>
+    <td>2</td>
+    <td>令狐冲</td>
+    <td>男</td>
+  </tr>
+
+  <tr>
+    <td><input type="checkbox" name="cb"></td>
+    <td>3</td>
+    <td>东方不败</td>
+    <td>女</td>
+  </tr>
+</table>
+
+
+<div>
+  <input type="button" id="selectAll" value="全选">
+  <input type="button" id="unselectAll" value="全不选">
+  <input type="button" id="selectRev" value="反选">
+</div>
+
+
+<script>
+
+  // 在页面加载完后绑定事件
+  window.onload = function (){
+    // 给全选按钮绑定单击事件(遍历所有cb，设置每一个cb的状态为选中)
+    document.getElementById("selectAll").onclick = function (){
+      var cbs = document.getElementsByName("cb");
+      // 遍历
+      for (var i = 0; i < cbs.length; i++) {
+        // 设置每一个cb状态为选中
+        cbs[i].checked = true;
+      }
+    }
+
+
+    // 全不选
+    document.getElementById("unselectAll").onclick = function (){
+      var cbs = document.getElementsByName("cb");
+      for (var i = 0; i < cbs.length; i++) {
+        cbs[i].checked = false;
+      }
+    }
+
+
+    // 反选
+    document.getElementById("selectRev").onclick = function (){
+      var cbs = document.getElementsByName("cb");
+      for (var i = 1; i < cbs.length; i++) {
+        if(cbs[i].checked == true){
+          cbs[i].checked = false;
+        }else{
+          cbs[i].checked = true;
+        }
+      }
+    }
+
+
+    // 表头全选/全不选check
+    document.getElementById("Select").onclick = function (){
+      var cbs = document.getElementsByName("cb");
+      var SA = document.getElementById("Select");
+      if(SA.checked == false){
+        for (var i = 0; i < cbs.length; i++) {
+          cbs[i].checked = false;
+        }
+      }else{
+        for (var i = 0; i < cbs.length; i++) {
+          cbs[i].checked = true;
+        }
+      }
+    }
+  }
+
+
+  var trs = document.getElementsByTagName("tr");
+  for (var i = 0; i < trs.length; i++) {
+
+    trs[i].onmouseover = function (){
+      this.className = "over";
+    }
+
+    trs[i].onmouseout = function (){
+      this.className = "out";
+    }
+  }
+
+
+</script>
+
+</body>
+</html>

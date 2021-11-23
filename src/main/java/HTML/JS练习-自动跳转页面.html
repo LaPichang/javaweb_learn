@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自动跳转页面</title>
+
+    <style>
+        p{
+            text-align: center;
+        }
+        span{
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+<p>
+    <span id="time">5</span>秒之后自动跳转页面
+</p>
+
+<script>
+    var time = document.getElementById("time");
+    var second = 5;
+    function showTime(){
+        second--;
+        if(second <= 0){
+            location.href = "http://localhost:63342/java_web_01/HTML/JS%E7%BB%83%E4%B9%A0-%E8%BD%AE%E6%92%AD%E5%9B%BE.html?_ijt=bj8sgij6ei1dvbi4ska885o00q";
+        }
+        time.innerHTML = second;
+    }
+
+    // 定时器
+    setInterval(showTime,1000);
+</script>
+
+</body>
+</html>

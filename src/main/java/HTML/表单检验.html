@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单检验</title>
+  
+  <style>
+    #IP{
+      height: 20px;
+    }
+    #span{
+      color: fuchsia;
+    }
+  </style>
+  
+</head>
+<body>
+
+<form id="form">
+<input id="IP" name="user" type="password" placeholder="请输入密码">
+<input type="submit" value="提交">
+<span id="span"></span>
+</form>
+
+<script>
+
+  /**
+   * 分析：
+   * 1.给表单绑定onsubmit 事件，监听器中判断每一个方法校验的结果
+   * 2.定义方法校验表单
+   * 3.给各个表单绑定onblur事件
+   */
+
+  // 校验用户名
+  function check(){
+    var IP = document.getElementById("IP").value;
+
+    // 定义正则表达式
+    var reg_IP = /^\w{6,12}$/;
+    // 判断是否符合规则
+    var flag = reg_IP.test(IP);
+    var Span = document.getElementById("span");
+    if(flag){
+      Span.innerHTML = "格式正确"
+    }else{
+      Span.innerHTML = "格式有误"
+    }
+    return flag;
+  }
+
+
+  window.onload = function (){
+    // 给表单绑定onsubmit事件
+    document.getElementById("form").onsubmit = function (){
+      // 调用校验方法
+      return check();
+    }
+  }
+
+</script>
+
+</body>
+</html>

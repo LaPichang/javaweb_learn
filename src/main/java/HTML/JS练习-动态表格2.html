@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态表格2</title>
+
+  <style>
+
+    table{
+      border: 1px solid;
+      margin: auto;
+      width: 500px;
+    }
+
+    td{
+      text-align: center;
+      border: 1px solid dodgerblue;
+    }
+
+    div{
+      text-align: center;
+      margin: 50px;
+    }
+  </style>
+
+</head>
+<body>
+
+<div>
+  <input id="id" type="text" placeholder="请输入编号">
+  <input id="name" type="text" placeholder="请输入姓名">
+  <input id="gender" type="text" placeholder="请输入性别">
+  <input id="btn_add" type="button" value="添加">
+</div>
+
+<p align="center">学生信息表</p>
+
+<table>
+  <tr>
+    <td>编号</td>
+    <td>姓名</td>
+    <td>性别</td>
+    <td>操作</td>
+  </tr>
+</table>
+
+
+<script>
+
+  /**
+   * 使用innerHTML来修改表格
+   */
+
+  // 获取按钮
+  document.getElementById("btn_add").onclick = function (){
+    // 获取文本框的内容
+    var id = document.getElementById("id").value;
+    var name = document.getElementById("name").value;
+    var gender = document.getElementById("gender").value;
+
+    // 获取table
+    var table = document.getElementsByTagName("table")[0];
+
+    // 追加一行
+    table.innerHTML += "<tr>\n" +
+            "<td>"+id+"</td>\n" +
+            "<td>"+name+"</td>\n" +
+            "<td>"+gender+"</td>\n" +
+            "<td><a href='javascript:void(0);' onclick='delTr(this);'>删除</a> </td>\n" +
+            "</tr>";
+  }
+
+  // 删除方法
+  function delTr(obj){
+    var table = obj.parentNode.parentNode.parentNode;
+    var tr = obj.parentNode.parentNode;
+    table.removeChild(tr);
+  }
+
+</script>
+
+</body>
+</html>
